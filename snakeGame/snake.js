@@ -9,9 +9,9 @@ var snakeH=20;
 var score=0;
 //default direction
 var direction="right";
-function saves(){
+/*function saves(){
 ctx.save();
-}
+}*/
 //read users directions
 
 window.onload= function()
@@ -96,15 +96,17 @@ function startgame()
 
         function checkcollision(x,y,array)
             {
-                     for(var i=0;i<array.length;i++) 
+                     for(var i=0;i<=array.length;i++) 
                      {
                     if(x ==array[i].x && y ==array[i].y)
                         {
                         return true;               
-                        }
-                    }
+                       }
                     return false;
-            }
+                  
+            
+                    }
+                }
 //to show scores
 function drawscore(x)
      {
@@ -129,12 +131,13 @@ function draw(){
         var snakeY =snake[0].y;     
  //if the snake hits the wall , it's game over
 
-        if(snakeX < 0 || snakeY < 0 || snakeX >= cvsW/snakeW || snakeY >= cvsH/snakeH ) 
-            {  
-                if(checkcollision(snake[0].x,snake[0].y,snake))
+        if(snakeX < 0 || snakeY < 0 || snakeX >= (cvsW/snakeW)-1 || snakeY >= (cvsH/snakeH)-1 ) 
+            {  clearInterval(game);
+                if(checkcollision(snake[0].x,snake[0].y,snake)  )
                 {
                     Gameover();
-                    snake.every(saves());
+                   
+
                     
                 }
                
@@ -168,14 +171,14 @@ function draw(){
         drawscore(score);
     }        
             
-setInterval(draw,150);
+let game = setInterval(draw,200);
 
 function Gameover(){
     
     ctx.fillStyle = "yellow";
     ctx.font = "40px calibri";
-    ctx.fillText(' Game Over' ,150,150);
-   
+    ctx.fillText(' Game Over' ,200,200);
+    ctx.fillText('Score :' + score,250,250);
     
 
 
