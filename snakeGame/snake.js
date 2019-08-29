@@ -14,9 +14,10 @@ ctx.save();
 }
 //read users directions
 
-window.onload= function(){
-    textCanvas(); 
-}
+window.onload= function()
+    {
+        textCanvas(); 
+    }
 
 function textCanvas()
     {
