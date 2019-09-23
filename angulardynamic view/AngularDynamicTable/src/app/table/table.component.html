@@ -1,0 +1,16 @@
+<table sortable-table (sorted)='onSorted($event)'>
+    <thead>
+      <tr>
+        <th sortable-column="id">Id</th>
+        <th sortable-column="firstname">First Name</th>
+        <th sortable-column="lastname">Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customers">
+        <td>{{c.id}}</td>
+        <td>{{c.firstname}}</td>
+        <td>{{c.lastname}}</td>
+      </tr>
+    </tbody>
+  </table>
